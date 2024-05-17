@@ -26,7 +26,7 @@ public class LoginController {
 				FXMLLoader loader = new FXMLLoader(getClass().getResource("/views/dashboard.fxml"));
 				
 				Parent root = loader.load();
-				Scene scene = new Scene(root,12000,800);
+				Scene scene = new Scene(root,800,600);
 				
 				Stage currentStage = (Stage) email.getScene().getWindow();
 				

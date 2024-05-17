@@ -6,9 +6,9 @@ public class Car {
 	
 	private String nome;
 	private String modelo;
-	private int ano;
+	private String ano;
 	
-	public Car(long id, String nome, String modelo, int ano) {
+	public Car(long id, String nome, String modelo, String ano) {
 		super();
 		this.id = id;
 		this.nome = nome;
@@ -33,12 +33,14 @@ public class Car {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-	public int getAno() {
+	public String getAno() {
 		return ano;
 	}
-	public void setAno(int ano) {
+	public void setAno(String ano) {
 		this.ano = ano;
 	}
+	
+	public Car() {}
 	
 	
 }
