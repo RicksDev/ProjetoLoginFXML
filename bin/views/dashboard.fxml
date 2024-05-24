@@ -78,11 +78,11 @@
                         </AnchorPane>
                         <AnchorPane layoutX="308.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0">
                            <children>
-                              <TableView prefHeight="200.0" prefWidth="266.0">
+                              <TableView fx:id="carView" prefHeight="200.0" prefWidth="266.0">
                                 <columns>
-                                  <TableColumn fx:id="carroTabela" prefWidth="94.0" text="Carro" />
-                                  <TableColumn fx:id="modeloTabela" prefWidth="108.0" text="Modelo" />
-                                    <TableColumn fx:id="precoTabela" prefWidth="62.0" text="Preço" />
+                                  <TableColumn fx:id="carroColuna" prefWidth="82.0" text="Carro" />
+                                  <TableColumn fx:id="modeloColuna" prefWidth="94.0" text="Modelo" />
+                                    <TableColumn fx:id="precoColuna" prefWidth="88.0" text="Preço" />
                                 </columns>
                               </TableView>
                            </children>

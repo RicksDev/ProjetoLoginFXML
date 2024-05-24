@@ -29,6 +29,8 @@ public class AluguelRepository {
 					car.setNome(data[1]);
 					car.setModelo(data[2]);
 					car.setAno(data[3]);
+					carros.add(car);
+					
 				}
 			}
 		} catch (FileNotFoundException e) {
