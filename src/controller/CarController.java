@@ -9,10 +9,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import repository.AluguelRepository;
 
 public class CarController {
@@ -44,6 +46,12 @@ public class CarController {
 	private AluguelRepository repoCar;
 	
 	@FXML
+	private Button adicionarBtn;
+	
+	@FXML
+	private Button limparBtn;
+	
+	@FXML
 	public void initialize() {
 		
 		carroColuna.setCellValueFactory(new PropertyValueFactory<>("nome"));
@@ -61,6 +69,22 @@ public class CarController {
 		//Preencher lista
 		carregarDadosSalvos();
 		
+		carView.setOnMouseClicked(this::clicouComOMouse);
+		
+	}
+	
+	private void clicouComOMouse(MouseEvent event) {
+		Car selectedCar = carView.getSelectionModel().getSelectedItem();
+		if(selectedCar != null) {
+			carro.setText(selectedCar.getNome());
+			modelo.setText(selectedCar.getModelo());
+			preco.setText(selectedCar.getAno());
+			
+			//Trocar o texto dos botões
+			
+			adicionarBtn.setText("Editar");
+			limparBtn.setText("Deletar");
+		}
 	}
 	
 	
@@ -109,6 +133,32 @@ public class CarController {
 		if(preco.getText().isEmpty()) {
 			showAlert("Erro", "Adicione um valor de proposta", Alert.AlertType.ERROR);
 		}
+		if(adicionarBtn.getText().equals("Cadastrar")) {
+			repoCar.addCar(car);
+		}else {
+			Car selectedCar = carView.getSelectionModel().getSelectedItem();
+			selectedCar.setNome(car.getNome());
+			selectedCar.setModelo(car.getModelo());
+			selectedCar.setAno(car.getAno());
+			repoCar.updateCar(selectedCar);
+			carView.refresh();
+		}
+		
+		clearFiels();
+	}
+	
+	public void limpar() {
+		if(limparBtn.getText().equals("Limpar")) {
+			clearFiels();
+		} else {
+			Car selectedCar = carView.getSelectionModel().getSelectedItem();
+			if(selectedCar != null) {
+				data.remove(selectedCar);
+				repoCar.deleteCar(selectedCar.getId());
+				clearFiels();
+				
+			}
+		}
 	}
 	
 	private void showAlert(String title, String message, Alert.AlertType alertType) {
@@ -125,7 +175,5 @@ public class CarController {
 		preco.clear();
 	}
 	
-	public void limpar() {
-		clearFiels();
-	}
+	
 }

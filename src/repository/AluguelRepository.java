@@ -48,7 +48,7 @@ public class AluguelRepository {
 	
 	//Deletar objeto específico
 	
-	public void deleteCar(int id) {
+	public void deleteCar(long id) {
 		carros.removeIf(car -> car.getId() == id);
 		saveCarros();
 	}

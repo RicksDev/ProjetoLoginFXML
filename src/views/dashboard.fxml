@@ -72,8 +72,8 @@
                               <TextField fx:id="carro" layoutX="14.0" layoutY="40.0" promptText="São Paulo" />
                               <TextField fx:id="modelo" layoutX="14.0" layoutY="100.0" promptText="Ceará" />
                               <TextField fx:id="preco" layoutX="14.0" layoutY="153.0" promptText="R$1500.00" />
-                              <Button layoutX="14.0" layoutY="191.0" mnemonicParsing="false" onAction="#adicionar" text="Adicionar" />
-                              <Button layoutX="117.0" layoutY="191.0" mnemonicParsing="false" onAction="#limpar" text="Limpar" />
+                              <Button fx:id="adicionarBtn" layoutX="14.0" layoutY="191.0" mnemonicParsing="false" onAction="#adicionar" text="Adicionar" />
+                              <Button fx:id="limparBtn" layoutX="117.0" layoutY="191.0" mnemonicParsing="false" onAction="#limpar" text="Limpar" />
                            </children>
                         </AnchorPane>
                         <AnchorPane layoutX="308.0" layoutY="24.0" prefHeight="200.0" prefWidth="200.0">
